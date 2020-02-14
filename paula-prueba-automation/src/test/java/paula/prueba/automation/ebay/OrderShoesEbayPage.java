@@ -159,12 +159,11 @@ public class OrderShoesEbayPage {
 	 */
 	public void orderByPriceAscendant() {
 		waitLoadLocator(orderByOptionsLocator);
-		WebElement select = driver.findElement(orderByOptionsLocator).findElements(By.tagName("li")).get(3);
-		System.out.println("Element to be selected: " + select.getText());
-		select.click();
+		driver.findElement(orderByOptionsLocator).findElements(By.tagName("li")).get(3).click();
 	}
 	
 	//8- Take the first 5 products with their prices and print them in console.
+	//10- Order and print the products by price in descendant mode
 	/**
 	 * Method to return the five first elements of the result list.
 	 * 
@@ -180,10 +179,8 @@ public class OrderShoesEbayPage {
 	 * click over the order by price descendant.
 	 */
 	public void orderByPriceDescendant() {
-	waitLoadLocator(orderByOptionsLocator);
-	WebElement select = driver.findElement(orderByOptionsLocator).findElements(By.tagName("li")).get(4);
-	System.out.println("Element to be selected: " + select.getText());
-	select.click();
+		waitLoadLocator(orderByOptionsLocator);
+		driver.findElement(orderByOptionsLocator).findElements(By.tagName("li")).get(4).click();
 	}
 	
 }

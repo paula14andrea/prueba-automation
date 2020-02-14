@@ -19,44 +19,53 @@ public class OrderShoesEbayTest extends BaseUtilities {
 	
 	@Test
 	public void validatePriceAscendantOrder() {
-		orderShoesEbayPage.setSearchInput("shoes");
-		orderShoesEbayPage.clickBuscarButton();
-		orderShoesEbayPage.setMarcaInput("puma");
-		orderShoesEbayPage.clickCkeckPuma();
-		orderShoesEbayPage.clickCkeckSize();
 		orderShoesEbayPage.mouseOverOrderByElement();
 		orderShoesEbayPage.orderByPriceAscendant();
+		
 		// 5- Print the number of results
 		System.out.println("Number of results: " + orderShoesEbayPage.getResult().getText());
 		
 		List<WebElement> shoes = orderShoesEbayPage.getFirstFiveShoes();
 		for (int i = 0; i < shoes.size() - 1; i++) {
-			float currentShoeFinalPrice = getItemPrice(shoes.get(i));
-			float nextShoeFinalPrice = getItemPrice(shoes.get(i+1));
+			//8- Take the first 5 products with their prices and print them in console.
 			System.out.println("Shoe: " + shoes.get(i).getText());
-			System.out.println("Shoe price " + i + ": " + currentShoeFinalPrice);
-			System.out.println("Shoe price " + (i+1) + ": " + nextShoeFinalPrice);
+			int currentShoeFinalPrice = getItemFinalPrice(shoes.get(i));
+			int nextShoeFinalPrice = getItemFinalPrice(shoes.get(i+1));
+			System.out.println("currentShoeFinalPrice: " + currentShoeFinalPrice);
+			System.out.println("nextShoeFinalPrice: " + nextShoeFinalPrice);
 			System.out.println();
 			
 			// 7. Assert the order taking the first 5 results.
-			assertTrue(currentShoeFinalPrice <= nextShoeFinalPrice, "Current (" + currentShoeFinalPrice + ") should be less or equal than next (" + nextShoeFinalPrice + ")");
+			assertTrue(currentShoeFinalPrice <= nextShoeFinalPrice, 
+						"Current (" + currentShoeFinalPrice + ") should be less or equal than next (" + nextShoeFinalPrice + ")");
+		}
+		
+		// 10- Order and print the products by price in descendant mode.
+		orderShoesEbayPage.mouseOverOrderByElement();
+		orderShoesEbayPage.orderByPriceDescendant();
+		shoes = orderShoesEbayPage.getFirstFiveShoes();
+		for (int i = 0; i < shoes.size(); i++) {
+			System.out.println("Shoe: " + shoes.get(i).getText());
+			System.out.println();
 		}
 		
 	}
 	
-	private float getItemPrice(WebElement item) {
+	private int getItemFinalPrice(WebElement item) {
 		String itemPrice = item.findElement(By.className("s-item__price")).getText();
 		//https://stackoverflow.com/questions/4030928/extract-digits-from-a-string-in-java
 		itemPrice = CharMatcher.is('.').or(CharMatcher.inRange('0','9')).retainFrom(itemPrice);
+		itemPrice = itemPrice.substring(0, itemPrice.indexOf("."));
 		String itemShipingPrice = item.findElement(By.className("s-item__shipping")).getText();
 		itemShipingPrice = CharMatcher.is('.')
 							.or(CharMatcher.inRange('0','9'))
 							.retainFrom(itemShipingPrice);
-		float shoeShipingPrice = 0;
+		int shoeShipingPrice = 0;
 		if(!itemShipingPrice.isEmpty()) {
-			shoeShipingPrice = Float.valueOf(itemShipingPrice);
+			itemShipingPrice = itemShipingPrice.substring(0, itemShipingPrice.indexOf("."));
+			shoeShipingPrice = Integer.valueOf(itemShipingPrice);
 		}
-		return Float.valueOf(itemPrice) + shoeShipingPrice;
+		return Integer.valueOf(itemPrice) + shoeShipingPrice;
 	}
 	
 	// 1- Enter to eBay.
@@ -64,6 +73,11 @@ public class OrderShoesEbayTest extends BaseUtilities {
 	public void arrange() {
 		orderShoesEbayPage = new OrderShoesEbayPage (driver);
 		navigateTo(URL_BASE);
+		orderShoesEbayPage.setSearchInput("shoes");
+		orderShoesEbayPage.clickBuscarButton();
+		orderShoesEbayPage.setMarcaInput("puma");
+		orderShoesEbayPage.clickCkeckPuma();
+		orderShoesEbayPage.clickCkeckSize();
 	}
 
 }
