@@ -1,7 +1,7 @@
 # prueba-automation
 Prueba automation Paula Andrea Vallejo
 Para la automatización de algunos de  los test de la página https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/, se utilizó Selenium - JAVA,  IDE eclipse,  se aplicaron los patrones de diseño POM (page object model) y AAA (arrange, actions, Assert), y se extendió de una clase BaseUtilities donde se hizo todo el setup del ambiente para la ejecución de los test.
-Git:  
+ 
 
 TEST 1.  
 1.	Ingresar a  https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/ 
@@ -66,4 +66,9 @@ TEST 9.
 5.	Ingresar a  https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/
 6.	Assert el botón  “Ingresar ” deberá estar presente 
 7.	Assert el botón  “Ingesar ” deberá estar activo 
-8.	Assert al dar click en el botón  “Ingresar ” deberá re direccionar correctamente a la página https://www.metrocuadrado.com/cas/login
+8.	Assert al dar click en el botón  “Ingresar ” deberá re direccionar correctamente a la página https://www.metrocuadrado.com/cas/login 
+
+Reportes pruebas automatizadas: 
+
+ReportePrincipal.JPG
+ReporteDetalle.JPG
