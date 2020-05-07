@@ -16,14 +16,14 @@ public class BaseUtilities {
 	protected WebDriver driver;
     protected WebDriverWait wait;
     
-    public static String URL_BASE = "https://www.ebay.com/";
+    public static String URL_BASE = "https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/";
     
     @BeforeEach
     public void init() throws MalformedURLException {
           selectPlatform();
     }
     
-    @AfterEach
+    @AfterEach 
     public void tearDown(){
         driver.close();
         driver.quit();
@@ -40,10 +40,6 @@ public class BaseUtilities {
      */
     public void selectPlatform() throws MalformedURLException
     {
-    	/*ChromeOptions options = new ChromeOptions();
-    	options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-    	options.addArguments("--headless");*/
-    	
     	System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
 
