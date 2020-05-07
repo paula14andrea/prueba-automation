@@ -1,5 +1,7 @@
 # prueba-automation
-Prueba automation Paula Andrea Vallejo
+Prueba automation Paula Andrea Vallejo. 
+
+
 Para la automatización de algunos de  los test de la página https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/, se utilizó Selenium - JAVA,  IDE eclipse,  se aplicaron los patrones de diseño POM (page object model) y AAA (arrange, actions, Assert), y se extendió de una clase BaseUtilities donde se hizo todo el setup del ambiente para la ejecución de los test.
  
 
