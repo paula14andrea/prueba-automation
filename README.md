@@ -65,14 +65,14 @@ Para la automatización de algunos de  los test de la página https://www.metroc
 4.	Assert al dar click en el botón  “PUBLICA TU INMUEBLE ” deberá re direccionar correctamente a la página https://www.metrocuadrado.com/publicar-inmuebles/
 
 # TEST 9. 
-5.	Ingresar a  https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/
-6.	Assert el botón  “Ingresar ” deberá estar presente 
-7.	Assert el botón  “Ingesar ” deberá estar activo 
-8.	Assert al dar click en el botón  “Ingresar ” deberá re direccionar correctamente a la página https://www.metrocuadrado.com/cas/login 
+1.	Ingresar a  https://www.metrocuadrado.com/calculadora-credito-hipotecario-vivienda/
+2.	Assert el botón  “Ingresar ” deberá estar presente 
+3.	Assert el botón  “Ingesar ” deberá estar activo 
+4.	Assert al dar click en el botón  “Ingresar ” deberá re direccionar correctamente a la página https://www.metrocuadrado.com/cas/login 
 
 
 
 # Reportes pruebas automatizadas: 
 
 ![Reporte](ReportePrincipal.JPG)
-ReporteDetalle.JPG
+![Detalle](ReporteDetalle.JPG)
