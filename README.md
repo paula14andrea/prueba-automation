@@ -74,5 +74,5 @@ Para la automatización de algunos de  los test de la página https://www.metroc
 
 # Reportes pruebas automatizadas: 
 
-ReportePrincipal.JPG
+![Reporte](ReportePrincipal.JPG)
 ReporteDetalle.JPG
